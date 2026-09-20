@@ -194,18 +194,6 @@ light:
     gamma_correct: 1.0
 
 sensor:
-  # NTC
-  #
-  # 3.3V
-  #   |
-  #  10k
-  #   |
-  # GPIO34
-  #   |
-  #  NTC
-  #   |
-  #  GND
-
   - platform: adc
     pin: GPIO34
     id: ntc_adc
@@ -228,15 +216,6 @@ sensor:
       reference_temperature: 25°C
       reference_resistance: 10kOhm
     accuracy_decimals: 1
-
-  # Light sensor
-  #
-  # MCU socket pin 4 / RP
-  # GPIO35
-  #
-  # Inverted:
-  # 0V = 100%
-  # 3.3V = 0%
 
   - platform: adc
     pin: GPIO35
@@ -317,19 +296,6 @@ switch:
       - lambda: id(panel)->set_blink_colon(true);
     turn_off_action:
       - lambda: id(panel)->set_blink_colon(false);
-
-# BUZZER
-#
-# GPIO25 -> 10k -> PNP base
-# PNP emitter -> 3.3V
-# PNP collector -> buzzer -> GND
-#
-# PNP is active LOW, therefore the ESPHome output is inverted.
-#
-# Buzzer Volume:
-#   0%   = 0% PWM
-#   50%  = 25% PWM
-#   100% = 50% PWM
 
 output:
   - platform: ledc
