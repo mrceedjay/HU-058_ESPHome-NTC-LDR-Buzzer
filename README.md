@@ -31,17 +31,12 @@ I made a test automation in Home Assistant to automatically adjust the display b
 
 ```yaml
 alias: WiFi Clock - Automatic Display Brightness
-description: "Automatically adjusts the display brightness based on the ambient light sensor."
+description: ""
 mode: restart
 
 triggers:
   - trigger: state
     entity_id: sensor.wifi_clock_light
-
-conditions:
-  - condition: template
-    value_template: >
-      {{ states('sensor.wifi_clock_light') not in ['unknown', 'unavailable'] }}
 
 actions:
   - action: light.turn_on
@@ -49,9 +44,12 @@ actions:
       entity_id: light.wifi_clock_display
     data:
       brightness_pct: >
-        {% set light_level = states('sensor.wifi_clock_light') | float %}
-        {% set brightness = (light_level - 4) * 39 / 96 + 1 %}
-        {{ [1, [brightness, 40] | min] | max | round(0) }}
+        {% set min_light = 4 %}
+        {% set max_light = 70 %}
+        {% set min_brightness = 0 %}
+        {% set max_brightness = 50 %}
+        {% set light = states('sensor.wifi_clock_light') | float %}
+        {{ ((light - min_light) / (max_light - min_light) * (max_brightness - min_brightness) + min_brightness) | round }}
 ```
 
 ### Donkey Kong Theme :)
