@@ -511,7 +511,7 @@ number:
     initial_value: 2000
     min_value: 100
     max_value: 10000
-    step: 100
+    step: 1
     unit_of_measurement: Hz
     mode: box
 
