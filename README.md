@@ -27,7 +27,7 @@ I had problem with OTA so i recommend using USB. The problem was that the old co
 
 I made a test automation in Home Assistant to automatically adjust the display brightness. It works but its just for demo.  
 
-In the example code, an LDR value of 4% corresponds to 0% display brightness, while 70% corresponds to 50% display brightness, with linear scaling.
+In the example code, an LDR value of 4% corresponds to 0% display brightness, while 30% corresponds to 50% display brightness, with linear scaling.
 
 
 ### Automatic Display Brightness
@@ -48,7 +48,7 @@ actions:
     data:
       brightness_pct: >
         {% set min_light = 4 %}
-        {% set max_light = 70 %}
+        {% set max_light = 30 %}
         {% set min_brightness = 0 %}
         {% set max_brightness = 50 %}
         {% set light = states('sensor.wifi_clock_light') | float %}
