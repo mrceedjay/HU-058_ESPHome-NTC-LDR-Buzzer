@@ -54,8 +54,327 @@ actions:
         {{ [1, [brightness, 40] | min] | max | round(0) }}
 ```
 
+### Donkey Kong Theme :)
+```yaml
+alias: WiFi Clock - Donkey Kong melody
+description: ""
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.wifi_clock_button_1
+    from: "off"
+    to: "on"
+conditions: []
+actions:
+  # C4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 262}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 276}
 
+  # C4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 262}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 278}
 
+  # A4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 440}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1379}
+
+  # E4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 330}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 279}
+
+  # G4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 392}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 274}
+
+  # F4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 349}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 279}
+
+  # D4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 294}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2500}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1658}
+
+  # D4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 294}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 276}
+
+  # D4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 294}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 275}
+
+  # A#4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 466}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1385}
+
+  # G4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 392}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 271}
+
+  # A4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 440}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 279}
+
+  # G4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 392}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 275}
+
+  # E4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 330}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2500}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1656}
+
+  # E4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 330}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 285}
+
+  # E4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 330}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 269}
+
+  # C5
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 523}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1388}
+
+  # A4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 440}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 270}
+
+  # A#4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 466}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 279}
+
+  # C5
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 523}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 274}
+
+  # D5
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 587}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2500}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1658}
+
+  # F4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 349}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 278}
+
+  # G4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 392}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 280}
+
+  # A4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 440}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 2000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1378}
+
+  # E4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 330}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 276}
+
+  # F4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 349}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 276}
+
+  # G4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 392}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1000}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 275}
+
+  # F4
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_frequency}
+    data: {value: 349}
+  - action: number.set_value
+    target: {entity_id: number.wifi_clock_buzzer_duration}
+    data: {value: 1650}
+  - action: button.press
+    target: {entity_id: button.wifi_clock_buzzer_beep}
+  - delay: {milliseconds: 1650}
+
+mode: restart
+```
 
 
 
