@@ -52,6 +52,8 @@ actions:
         {{ ((light - min_light) / (max_light - min_light) * (max_brightness - min_brightness) + min_brightness) | round }}
 ```
 
+Home Assistant automation that plays a melody on the buzzer when button1 is pressed. Works better than expected.
+
 ### Donkey Kong Theme :)
 ```yaml
 alias: WiFi Clock - Donkey Kong melody
