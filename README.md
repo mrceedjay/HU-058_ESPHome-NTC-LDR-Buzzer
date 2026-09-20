@@ -56,7 +56,7 @@ Home Assistant automation that plays a melody on the buzzer when button1 is pres
 
 ### Donkey Kong Theme :)
 ```yaml
-alias: WiFi Clock - Donkey Kong melody
+alias: WiFi Clock - Donkey Kong theme
 description: ""
 triggers:
   - trigger: state
