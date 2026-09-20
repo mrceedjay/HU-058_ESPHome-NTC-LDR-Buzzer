@@ -9,17 +9,6 @@ esphome:
   on_boot:
     priority: -100
     then:
-      # Startup beep: 2000 Hz, 10% PWM, 20 ms.
-      - output.turn_on: buzzer_output
-      - output.ledc.set_frequency:
-          id: buzzer_output
-          frequency: 2000 Hz
-      - output.set_level:
-          id: buzzer_output
-          level: 10%
-      - delay: 20ms
-      - output.turn_off: buzzer_output
-
       # Restore effect settings to the display component.
       - lambda: |-
           id(panel)->set_effect_speed(id(effect_speed).state);
@@ -35,7 +24,7 @@ esp32:
   board: esp32dev
   framework:
     type: arduino
-    
+
 external_components:
   - source:
       type: local
@@ -206,11 +195,6 @@ light:
     gamma_correct: 1.0
 
 sensor:
-
-  # ESPHome reports the native temperature in Celsius.
-  # Home Assistant automatically converts it to the user's
-  # preferred temperature unit (°C or °F).
-
   - platform: adc
     pin: GPIO34
     id: ntc_adc
@@ -226,26 +210,14 @@ sensor:
 
   - platform: ntc
     sensor: ntc_resistance
-    id: ntc_temp
-    name: "NTC Temp"
-    unit_of_measurement: "°C"
-    device_class: temperature
-    state_class: measurement
+    id: temperature
+    name: Temperature
     calibration:
       b_constant: 3950
       reference_temperature: 25°C
       reference_resistance: 10kOhm
     accuracy_decimals: 1
-
-  # Light sensor
-  #
-  # MCU socket pin 4 / RP
-  # GPIO35
-  #
-  # Inverted:
-  # 0V = 100%
-  # 3.3V = 0%
-
+    
   - platform: adc
     pin: GPIO35
     id: light_sensor
@@ -290,7 +262,7 @@ binary_sensor:
     filters:
       - delayed_on: 20ms
       - delayed_off: 20ms
-
+      
 script:
   - id: alarm_sound
     mode: restart
@@ -336,6 +308,19 @@ script:
             - delay: 150ms
             - output.turn_off: buzzer_output
             - delay: 600ms
+
+  - id: buzzer_beep
+    mode: restart
+    then:
+      - output.turn_on: buzzer_output
+      - output.ledc.set_frequency:
+          id: buzzer_output
+          frequency: !lambda "return id(buzzer_frequency).state;"
+      - output.set_level:
+          id: buzzer_output
+          level: !lambda "return id(buzzer_volume).state / 200.0f;"
+      - delay: !lambda "return (uint32_t) id(buzzer_duration).state;"
+      - output.turn_off: buzzer_output
 
 switch:
   - platform: template
@@ -384,15 +369,7 @@ button:
     name: Buzzer Beep
     icon: mdi:volume-high
     on_press:
-      - output.turn_on: buzzer_output
-      - output.ledc.set_frequency:
-          id: buzzer_output
-          frequency: !lambda "return id(buzzer_frequency).state;"
-      - output.set_level:
-          id: buzzer_output
-          level: !lambda "return id(buzzer_volume).state / 200.0f;"
-      - delay: !lambda "return (uint32_t) id(buzzer_duration).state;"
-      - output.turn_off: buzzer_output
+      - script.execute: buzzer_beep
 
   - platform: template
     name: Lamp Test
@@ -480,7 +457,6 @@ select:
     set_action:
       - lambda: |-
           std::string u = x;
-
           if (u == "None")
             u.clear();
 
