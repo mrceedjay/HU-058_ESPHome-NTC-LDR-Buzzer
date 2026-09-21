@@ -1,6 +1,6 @@
-# Open firmware for the HU-058D WiFi clock with added buzzer,ntc and light sensor
+# Open firmware for the HU-058D WiFi clock with added buzzer, NTC and light sensor
 
-I have added support for buzzer,temp and light sensor. The 5V need to be cut and 3.3V connected instead. Only clock.yaml has been changed. Added temperature, beep with changable duration and frequency and light(0-100%) to homeassistant device dashboard. 
+I have added support for buzzer, temp and light sensor. The 5V needs to be cut and 3.3V connected instead. Only clock.yaml has been changed. Added temperature, beep with changeable duration and frequency and light (0-100%) to Home Assistant device dashboard. 
 
 The new connections are:
 
@@ -11,7 +11,7 @@ The new connections are:
 | GPIO25 | 11 | RB, buzzer |
 
 
-The NTC thermistor calibration can be adjusted in the `calibration` section of `clock.yaml'. I have not calibrated the sensor and it seems to be reading a little high on my device with the "default" values. 
+The NTC thermistor calibration can be adjusted in the `calibration` section of `clock.yaml`. I have not calibrated the sensor and it seems to be reading a little high on my device with the "default" values. 
 
 | Setting | Default | Description |
 | --- | --- | --- |
@@ -23,13 +23,11 @@ The NTC thermistor calibration can be adjusted in the `calibration` section of `
 
 ![ESP32 3.3V](docs/images/esp32%203_3V.png)
 
-I had problem with OTA when i compiled the new clock.yaml so i recommend using USB the first time. The problem was that the old code was still running after firmware upload. Smaller changes have worked to program OTA after the initial change so i don't know why i had problem the first time.
+I had a problem with OTA when I compiled the new clock.yaml so I recommend using USB the first time. The problem was that the old code was still running after firmware upload. Smaller changes have worked to program OTA after the initial change so I don't know why I had a problem the first time.
 
-I made a test automation in Home Assistant to automatically adjust the display brightness. It works but its just for demo.  
+I made a test automation in Home Assistant to automatically adjust the display brightness. It works but it's just for demo.  
 
 In the example code, an LDR value of 4% corresponds to 0% display brightness, while an LDR value of 30% corresponds to 50% display brightness, with linear scaling.
-
-
 ### Automatic Display Brightness
 
 ```yaml
