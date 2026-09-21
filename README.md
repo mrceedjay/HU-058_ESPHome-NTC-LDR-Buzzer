@@ -11,7 +11,7 @@ The new connections are:
 | GPIO25 | 11 | RB, buzzer |
 
 
-The NTC thermistor calibration can be adjusted in the `calibration` section of `clock.yaml'. I have not calibrated the sensor and it seems to be reading a little high on my device. 
+The NTC thermistor calibration can be adjusted in the `calibration` section of `clock.yaml'. I have not calibrated the sensor and it seems to be reading a little high on my device with the "default" values. 
 
 | Setting | Default | Description |
 | --- | --- | --- |
