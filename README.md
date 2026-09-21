@@ -45,9 +45,9 @@ actions:
       entity_id: light.wifi_clock_display
     data:
       brightness_pct: >
-        {% set min_light = 4 %}
-        {% set max_light = 30 %}
-        {% set min_brightness = 0 %}
+        {% set min_light = 3 %}
+        {% set max_light = 20 %}
+        {% set min_brightness = 1 %}
         {% set max_brightness = 50 %}
         {% set light = states('sensor.wifi_clock_light') | float %}
         {{ ((light - min_light) / (max_light - min_light) * (max_brightness - min_brightness) + min_brightness) | round }}
