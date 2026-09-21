@@ -27,7 +27,7 @@ I had a problem with OTA when I compiled the new clock.yaml so I recommend using
 
 I made a test automation in Home Assistant to automatically adjust the display brightness. It works but it's just for demo.  
 
-In the example code, an LDR value of 3% corresponds to 1% display brightness, while an LDR value of 15% corresponds to 50% display brightness, with linear scaling.
+In the example YAML, an LDR value of 3% corresponds to 1% display brightness, while an LDR value of 15% corresponds to 50% display brightness, with linear scaling.
 ### Automatic Display Brightness
 
 ```yaml
